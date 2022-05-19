@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #ddd;
+}
+
+#grid-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 256px;
+    height: 256px;
+    background-color: #fff;
+}
+
+.box {
+    background-color: #fff;
+}
+
+.box.block {
+    background-color:#000;
+}
