@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="stylesheet.css">
     <title>Etch-A-Sketch</title>
 </head>
-<body>
+<body ondragstart="return false;" ondrop="return false;">
     <div class="container">
         <div id="grid-container"></div>
+        <canvas id="canvas" width="384" height="512"></canvas>
     </div>
-    <div class="canvas-container"></div>
+    <button onclick="changeImage()">Click</button>
+    
     
     <script type="text/javascript" src="etch.js"></script>
 </body>

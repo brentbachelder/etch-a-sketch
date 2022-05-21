@@ -19,12 +19,22 @@
     width: 256px;
     height: 256px;
     background-color: #fff;
+    margin-right: 30px; /*Testing purpose only*/
+}
+
+#canvas {
+    display: none;
 }
 
 .box {
     background-color: #fff;
+    
 }
 
-.box.block {
-    background-color:#000;
+.box.gray {
+    background-color:#bbb;
+}
+
+.box.black {
+    background-color:#000 !important;
 }
