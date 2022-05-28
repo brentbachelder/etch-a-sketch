@@ -7,8 +7,8 @@ let prevX = -1;
 let prevY = -1;
 var gridCreated = false;
 
-let totalDrawnBlocks = 0;
-let correctDrawnBlocks= 0;
+let currentImage = 0;
+const images = ['https://i.ibb.co/DgPH8WG/test-picture.jpg', 'https://i.ibb.co/mzWPNss/Untitled-1.jpg'];
 
 var mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
@@ -89,11 +89,17 @@ var getCanvasBoxes = function() {
 	ctx.putImageData(imageData, 0, 0);
 };
 
-function changeImage() {
-    clearDrawing();
-    clearImage();
-    img.src = "https://i.ibb.co/mzWPNss/Untitled-1.jpg";
-    img.onload = getCanvasBoxes;
+function changeImage(dontChange = false) {
+    if(!document.getElementById("change-image-button").classList.contains("pressed")) {
+        clearImage();
+        if(!dontChange) {
+            clearDrawing();
+            if(currentImage + 1 == images.length) currentImage = 0;
+            else currentImage += 1;
+        }
+        img.src = images[currentImage];
+        img.onload = getCanvasBoxes;
+    }
 }
 
 function clearImage() {
@@ -104,6 +110,20 @@ function clearImage() {
 function clearDrawing() {
     var blacks = document.querySelectorAll('.black');
     for(var i = 0; i < blacks.length; i++) blacks[i].classList.remove('black');
+}
+
+function sketchMode() {
+    var button = document.getElementById("sketch-button");
+    if(button.classList.contains("pressed")) {
+        clearImage();
+        button.classList.remove("pressed");
+        document.getElementById("change-image-button").classList.add("pressed");
+    }
+    else {
+        button.classList.add("pressed");
+        document.getElementById("change-image-button").classList.remove("pressed");
+        changeImage(true);
+    }
 }
 
 img.onload = function() {

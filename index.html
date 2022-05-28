@@ -8,11 +8,20 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body ondragstart="return false;" ondrop="return false;">
+    <div class="title-container">
+        <header>Etch-A-Sketch</header>
+        <h2>No Pixel Skip / Canvas Trace</h2>
+    </div>
     <div class="container">
         <div id="grid-container"></div>
         <canvas id="canvas" width="384" height="512"></canvas>
+        <div class="button-container">
+            <button id="sketch-button" class="pressed" onclick="sketchMode()">Sketch Mode</button>
+            <button id="change-image-button" onclick="changeImage()">Change Image</button>
+            <button onclick="clearDrawing()">Clear</button>
+        </div>
     </div>
-    <button onclick="changeImage()">Click</button>
+    
     
     
     <script type="text/javascript" src="etch.js"></script>
